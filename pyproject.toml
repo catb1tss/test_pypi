@@ -1,6 +1,6 @@
 [project]
-name = "ra"
-version = "0.1.0"
+name = "ra_catbit"
+version = "0.1.2"
 description = ""
 authors = [
     {name = "Your Name",email = "you@example.com"}
