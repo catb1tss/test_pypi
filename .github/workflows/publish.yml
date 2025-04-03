@@ -28,10 +28,9 @@ jobs:
           python .github/workflows/update_version.py
 
       - name: Configure Poetry
-        env: 
-          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}
-          POETRY_PYPI_TOKEN_TESTPYPI: ${{ secrets.TEST_PYPI_TOKEN }}
         run: |
+          export POETRY_PYPI_TOKEN_PYPI=$PYPI_TOKEN
+          export POETRY_PYPI_TOKEN_TESTPYPI=$TEST_PYPI_TOKEN
           poetry config repositories.testpypi https://test.pypi.org/legacy/
 
       - name: Build package
@@ -43,5 +42,4 @@ jobs:
           echo "hi2"
 
       - name: Publish to PyPI
-        if: steps.publish.conclusion == 'success'
         run: poetry publish
