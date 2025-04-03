@@ -39,6 +39,7 @@ jobs:
       - name: Publish to TestPyPI
         run: |
           poetry publish -r testpypi
+          echo "hi2"
 
       - name: Publish to PyPI
         if: steps.publish.conclusion == 'success'
