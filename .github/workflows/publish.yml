@@ -41,5 +41,4 @@ jobs:
 
       - name: Publish to PyPI
         run: |
-          exit 1
           poetry publish -u __token__ -p ${{ secrets.PYPI_TOKEN }}
