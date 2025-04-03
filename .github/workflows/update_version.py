@@ -4,7 +4,7 @@ import requests
 import json
 
 def get_latest_version(package_name):
-    url = f"https://test.pypi.org/rss/project/ra-catbit/releases.xml"
+    url = f"https://pypi.org/rss/project/ra-catbit/releases.xml"
     response = requests.get(url)
     version = re.findall(r'\d+\.\d+\.\d+', response.text)[0]
     if not version:
