@@ -34,5 +34,5 @@ jobs:
       - name: Publish to TestPyPI
         run: poetry publish -r testpypi
 
-      - name: Publish to PyPI
-        run: poetry publish
+      # - name: Publish to PyPI
+      #   run: poetry publish
