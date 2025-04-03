@@ -38,8 +38,10 @@ jobs:
 
       - name: Publish to TestPyPI
         run: |
+          export POETRY_PYPI_TOKEN_testpypi=$TEST_PYPI_API_TOKEN
           poetry publish -r testpypi
-          echo "hi2"
 
       - name: Publish to PyPI
-        run: poetry publish
+        run: |
+          export POETRY_PYPI_TOKEN_pypi=$PYPI_TOKEN
+          poetry publish
