@@ -28,10 +28,11 @@ jobs:
           python .github/workflows/update_version.py
 
       - name: Configure Poetry
+        env: 
+          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}
+          POETRY_PYPI_TOKEN_TESTPYPI: ${{ secrets.TEST_PYPI_TOKEN }}
         run: |
-          poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
           poetry config repositories.testpypi https://test.pypi.org/legacy/
-          poetry config pypi-token.testpypi ${{ secrets.TEST_PYPI_API_TOKEN }}
 
       - name: Build package
         run: poetry build
