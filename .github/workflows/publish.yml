@@ -21,6 +21,10 @@ jobs:
       - name: Install Poetry
         run: |
           pip install poetry
+        
+      - name: Update version
+        run: |
+          python update_version.py
 
       - name: Configure Poetry
         run: |
