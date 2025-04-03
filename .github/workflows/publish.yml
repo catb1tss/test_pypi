@@ -8,6 +8,7 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    continue-on-error: false
 
     steps:
       - name: Checkout repository
@@ -36,7 +37,10 @@ jobs:
         run: poetry build
 
       - name: Publish to TestPyPI
-        run: poetry publish -r testpypi
+        run: |
+          poetry publish -r testpypi
+          exit 1
 
-      # - name: Publish to PyPI
-      #   run: poetry publish
+      - name: Publish to PyPI
+        if: steps.publish.conclusion == 'success'
+        run: poetry publish
