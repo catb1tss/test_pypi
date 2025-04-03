@@ -30,7 +30,7 @@ jobs:
       - name: Configure Poetry
         run: |
           export POETRY_PYPI_TOKEN_pypi=$PYPI_TOKEN
-          export POETRY_PYPI_TOKEN_testpypi=$TEST_PYPI_TOKEN
+          export POETRY_PYPI_TOKEN_testpypi=$TEST_PYPI_API_TOKEN
           poetry config repositories.testpypi https://test.pypi.org/legacy/
 
       - name: Build package
