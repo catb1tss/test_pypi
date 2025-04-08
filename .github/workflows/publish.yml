@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main  # Runs on every commit to main branch
+    paths:
+      - 'ra_catbit/'
+      - 'README.md'
+      - 'pyproject.toml'
 
 jobs:
   publish:
